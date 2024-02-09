@@ -26,7 +26,8 @@ exports.readObservation = (file, context) => {
    .pipe(csv())
    .on('data',(row) => {
     // log raw data
-    console.log(row)
+    //console.log(row)
+    printDict(row);
 
    })
    .on('end',() => {
@@ -34,4 +35,12 @@ exports.readObservation = (file, context) => {
     console.log('end!');
    })
 
+}
+
+// HELPER FUNCTION 
+function printDict(row){
+  for (let key in row){
+    console.log(key + ':' + row[key]);
+    console.log(`${key}: ${row[key]}`)
+  }
 }
